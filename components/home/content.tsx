@@ -6,11 +6,13 @@ import { Flex } from "../styles/flex";
 import { TableWrapper } from "../table/table";
 import NextLink from "next/link";
 import { Card1 } from "./card1";
+import {Breadcrumbs, Crumb, CrumbLink} from '../breadcrumb/breadcrumb.styled';
+import {HouseIcon} from '../icons/breadcrumb/house-icon';
+import {UsersIcon} from '../icons/breadcrumb/users-icon';
 import { Card2 } from "./card2";
-import { CardBalance3 } from "./card-balance3";
-import { CardAgents } from "./card-agents";
-import { CardTransactions } from "./card-transactions";
 import Calendar from "../charts/calender";
+import CardList from "./card-list";
+import Status from "./status";
 
 export const Content = () => (
   <Box css={{ overflow: "hidden", height: "100%" }}>
@@ -29,113 +31,96 @@ export const Content = () => (
       }}
       justify={"start"}
     >
+      <div className="px-2">
+      <Breadcrumbs>
+            <Crumb>
+               <HouseIcon />
+               <Link href={'/'}>
+                  <CrumbLink href="#">Home</CrumbLink>
+               </Link>
+            </Crumb>
+         </Breadcrumbs>
+      </div>
+
       {/* Card Section Top */}
-      <div className="flex w-full justify-around rounded-xl">
+      <div className="flex w-full px-2 justify-around rounded-xl">
         <Card1 />
         <Card2 />
         {/* <CardBalance3 /> */}
       </div>
 
       {/* Chart */}
-      <div className="w-full">
-        <Box
-          css={{
-            width: "100%",
-            backgroundColor: "$blue600",
-            boxShadow: "$lg",
-            borderRadius: "$2xl",
-            px: "$10",
-            py: "$10",
-          }}
-        >
-          <Calendar ValuePiece={new Date()}/>
-        </Box>   
+      <div className="flex place-content-center w-full">
+        <Calendar ValuePiece={new Date()} />
+      </div>
+
+      <div className="flex w-full">
+        <Status />
       </div>
 
       {/* Left Section */}
-      <Box
-        css={{
-          px: "$12",
-          mt: "$8",
-          height: "fit-content",
-          "@xsMax": { px: "$10" },
-          gap: "$6",
-          overflow: "hidden",
-        }}
-      >
-        <Text
-          h3
-          css={{
-            textAlign: "center",
-            "@lg": {
-              textAlign: "inherit",
-            },
-          }}
-        >
-          Section
-        </Text>
-        <Flex
-          direction={"column"}
-          justify={"center"}
-          css={{
-            gap: "$8",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            "@sm": {
-              flexWrap: "nowrap",
-            },
-            "@lg": {
-              flexWrap: "nowrap",
-              flexDirection: "column",
-            },
-          }}
-        >
-          <CardAgents />
-          <CardTransactions />
-        </Flex>
-      </Box>
-    </Flex>
-
-    {/* Table Latest Users */}
-    <Flex
-      direction={"column"}
-      justify={"center"}
-      css={{
-        width: "100%",
-        py: "$10",
-        px: "$10",
-        mt: "$8",
-        "@sm": { px: "$20" },
-      }}
-    >
-      <Flex justify={"between"} wrap={"wrap"}>
-        <Text
-          h3
-          css={{
-            textAlign: "center",
-            "@lg": {
-              textAlign: "inherit",
-            },
-          }}
-        >
-          Latest Users
-        </Text>
-        <NextLink href="/accounts">
-          <Link
-            block
-            color="primary"
-            css={{
-              textAlign: "center",
-              "@lg": {
-                textAlign: "inherit",
-              },
-            }}
-          >
-            View All
-          </Link>
-        </NextLink>
-      </Flex>
-      <TableWrapper />
+      <div className="flex p-2 justify-start h-full w-full">
+        <div className="p-3">
+            <Flex
+              direction={"column"}
+              justify={"center"}
+              css={{
+                gap: "$8",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                "@sm": {
+                  flexWrap: "nowrap",
+                },
+                "@lg": {
+                  flexWrap: "nowrap",
+                  flexDirection: "column",
+                },
+              }}
+            >
+              <CardList />
+            </Flex>
+        </div>
+        <div className="p-3">
+            <Flex
+              direction={"column"}
+              justify={"center"}
+              css={{
+                gap: "$8",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                "@sm": {
+                  flexWrap: "nowrap",
+                },
+                "@lg": {
+                  flexWrap: "nowrap",
+                  flexDirection: "column",
+                },
+              }}
+            >
+              <CardList />
+            </Flex>
+        </div>
+        <div className="p-3">
+            <Flex
+              direction={"column"}
+              justify={"center"}
+              css={{
+                gap: "$8",
+                flexDirection: "row",
+                flexWrap: "wrap",
+                "@sm": {
+                  flexWrap: "nowrap",
+                },
+                "@lg": {
+                  flexWrap: "nowrap",
+                  flexDirection: "column",
+                },
+              }}
+            >
+              <CardList />
+            </Flex>
+        </div>
+      </div>
     </Flex>
   </Box>
 );

@@ -8,7 +8,7 @@ export const Card2 = () => {
   return (
     <div className="h-full w-1/3">
       <Card>
-        <Card.Body className="flex h-full bg-orange-600">
+        <Card.Body className="flex h-full">
           <h1 className="text-lg mb-2">Riwayat</h1>
           <Card
             css={{
@@ -20,16 +20,27 @@ export const Card2 = () => {
           >
             <div>
               <div>
-                <div className="sticky top-0 ...">A</div>
                 <div>
-                  <div>
-                    <img src="..." />
-                    <strong>Andrew Alfred</strong>
-                  </div>
-                  <div>
-                    <img src="..." />
-                    <strong>Aisha Houston</strong>
-                  </div>
+                  <Card
+                    isPressable
+                    isHoverable
+                    variant="bordered"
+                    css={{ mw: "400px", mh: "100px" }}
+                  >
+                    <Card.Body>
+                      <Text>A pressable card.</Text>
+                    </Card.Body>
+                  </Card>
+                  <Card
+                    isPressable
+                    isHoverable
+                    variant="bordered"
+                    css={{ mw: "400px", mh: "100px" }}
+                  >
+                    <Card.Body>
+                      <Text>A pressable card.</Text>
+                    </Card.Body>
+                  </Card>
                 </div>
               </div>
               <div>

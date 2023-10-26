@@ -6,9 +6,9 @@ import { Flex } from "../styles/flex";
 
 export const Card1 = () => {
   return (
-    <div className="h-full w-2/3">
+    <div className="h-full mr-2 w-2/3">
       <Card>
-        <Card.Body className="flex h-full bg-blue-200">
+        <Card.Body className="flex h-full">
           <h1 className="text-lg mb-2 "> Hello ....</h1>
           <Card
             css={{

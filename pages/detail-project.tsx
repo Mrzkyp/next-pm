@@ -5,8 +5,8 @@ import DetailProject from "../components/project/detail-project";
 const project: NextPage = () => {
   return (
     <div>
-      <Project />
-      {/* <DetailProject /> */}
+      {/* <Project /> */}
+      <DetailProject />
     </div>
   );
 };
